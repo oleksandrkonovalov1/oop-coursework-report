@@ -309,7 +309,7 @@ const renderFunctionItem = (item) =>
 const requirementsSection = [
   h1("1 ОПИС ВИМОГ"),
   ...requirementsIntro.map((t) => body(t)),
-  h2("1.1 Сценарії використання", { tight: true }),
+  h2("1.1 Сценарії використання"),
   ...scenariosIntro.map((t) => body(t)),
   ...scenarios.flatMap((s, i) => renderScenario(s, i + 1)),
   h2("1.2 Функції програми"),
@@ -318,7 +318,7 @@ const requirementsSection = [
 
 // ─── 2 ПРОЄКТУВАННЯ ПРОГРАМИ ─────────────────────────────────────────
 
-const designSection = [h1("2 ПРОЄКТУВАННЯ ПРОГРАМИ"), ...designContent];
+const designSection = [h1("2 ПРОЄКТУВАННЯ ПРОГРАМИ", { tight: true }), ...designContent];
 
 // ─── ВИСНОВКИ, ДЖЕРЕЛА, ДОДАТОК А ────────────────────────────────────
 

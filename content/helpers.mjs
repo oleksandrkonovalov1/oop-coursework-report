@@ -56,7 +56,8 @@ export const h1 = (title, opts = {}) =>
     pageBreakBefore: opts.pageBreakBefore ?? true,
     keepNext: true,
     alignment: AlignmentType.CENTER,
-    spacing: { before: 0, after: HEADING_GAP, line: LINE_15, lineRule: "auto" },
+    // tight:true — далі одразу заголовок підрозділу, без відступу між ними
+    spacing: { before: 0, after: opts.tight ? 0 : HEADING_GAP, line: LINE_15, lineRule: "auto" },
     children: [run(title.toUpperCase(), { bold: true })],
   });
 
