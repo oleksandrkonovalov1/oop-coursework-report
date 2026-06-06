@@ -32,8 +32,8 @@ import { tocEntries } from "./content/toc-data.mjs";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Обсяг записки для реферату — звірено з PDF після рендеру (Step 5)
-const PAGES_TOTAL = "26";
-const FIGURES_TOTAL = "6";
+const PAGES_TOTAL = "27";
+const FIGURES_TOTAL = "8";
 const SOURCES_TOTAL = "6";
 
 // ─── ТИТУЛЬНИЙ АРКУШ (додаток Г методички) ──────────────────────────
@@ -127,7 +127,7 @@ const titlePage = [
 const cell = (text, { width, align = AlignmentType.LEFT, bold = false } = {}) =>
   new TableCell({
     verticalAlign: VerticalAlign.CENTER,
-    width: width ? { size: width, type: WidthType.PERCENTAGE } : undefined,
+    width: width ? { size: width, type: WidthType.DXA } : undefined,
     margins: { top: 60, bottom: 60, left: 80, right: 80 },
     children: [new Paragraph({
       alignment: align,
@@ -146,25 +146,26 @@ const planStages = [
   ["7", "Захист курсової роботи", "20.05 – 30.05.2026"],
 ];
 
+// Ширини стовпців у DXA (сума = ширина тексту 9355): № — мінімально під цифру.
+const PLAN_COLS = [600, 6055, 2700];
+
 const planTable = new Table({
-  width: { size: 100, type: WidthType.PERCENTAGE },
+  width: { size: 9355, type: WidthType.DXA },
+  columnWidths: PLAN_COLS,
   rows: [
     new TableRow({
       tableHeader: true,
       children: [
-        cell("№", { width: 7, align: AlignmentType.CENTER, bold: true }),
-        cell("Назва етапу", { width: 48, align: AlignmentType.CENTER, bold: true }),
-        cell("Термін виконання", { width: 27, align: AlignmentType.CENTER, bold: true }),
-        cell("Примітка", { width: 18, align: AlignmentType.CENTER, bold: true }),
+        cell("№", { width: PLAN_COLS[0], align: AlignmentType.CENTER, bold: true }),
+        cell("Назва етапу", { width: PLAN_COLS[1], align: AlignmentType.CENTER, bold: true }),
+        cell("Термін виконання", { width: PLAN_COLS[2], align: AlignmentType.CENTER, bold: true }),
       ],
     }),
-    ...planStages.map(([n, stage, term], i) => new TableRow({
+    ...planStages.map(([n, stage, term]) => new TableRow({
       children: [
-        cell(n, { align: AlignmentType.CENTER }),
-        cell(stage),
-        cell(term, { align: AlignmentType.CENTER }),
-        // останній етап (захист) ще не відбувся на момент подання записки
-        cell(i === planStages.length - 1 ? "" : "Виконано", { align: AlignmentType.CENTER }),
+        cell(n, { width: PLAN_COLS[0], align: AlignmentType.CENTER }),
+        cell(stage, { width: PLAN_COLS[1] }),
+        cell(term, { width: PLAN_COLS[2], align: AlignmentType.CENTER }),
       ],
     })),
   ],
@@ -201,7 +202,14 @@ const taskSheet = [
     "4. Перелік питань, що їх належить розробити: вступ, опис вимог, " +
     "проєктування програми, висновки.",
   ),
-  body("5. Календарний план виконання роботи:", { keepNext: true, after: 120 }),
+  // Календарний план — з нової сторінки, окремим центрованим заголовком (додаток Д)
+  new Paragraph({
+    pageBreakBefore: true,
+    alignment: AlignmentType.CENTER,
+    keepNext: true,
+    spacing: { after: 240, line: LINE_15, lineRule: "auto" },
+    children: [run("КАЛЕНДАРНИЙ ПЛАН", { bold: true })],
+  }),
   planTable,
   emptyLine(),
   body("Дата видачі завдання: «21» лютого 2026 р.", { firstLine: 0 }),
@@ -301,7 +309,7 @@ const renderFunctionItem = (item) =>
 const requirementsSection = [
   h1("1 ОПИС ВИМОГ"),
   ...requirementsIntro.map((t) => body(t)),
-  h2("1.1 Сценарії використання"),
+  h2("1.1 Сценарії використання", { tight: true }),
   ...scenariosIntro.map((t) => body(t)),
   ...scenarios.flatMap((s, i) => renderScenario(s, i + 1)),
   h2("1.2 Функції програми"),

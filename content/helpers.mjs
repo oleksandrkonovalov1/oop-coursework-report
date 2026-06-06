@@ -61,12 +61,13 @@ export const h1 = (title, opts = {}) =>
   });
 
 // Заголовок підрозділу: з абзацного відступу, напівжирно; Heading 2 — у змісті
-export const h2 = (title) =>
+export const h2 = (title, opts = {}) =>
   new Paragraph({
     heading: HeadingLevel.HEADING_2,
     keepNext: true,
     indent: { firstLine: FIRST_LINE },
-    spacing: { before: HEADING_GAP, after: HEADING_GAP, line: LINE_15, lineRule: "auto" },
+    // tight:true — підрозділ одразу під заголовком розділу (без подвійного відступу)
+    spacing: { before: opts.tight ? 0 : HEADING_GAP, after: HEADING_GAP, line: LINE_15, lineRule: "auto" },
     // Методичка: підрозділи (1.1, 1.2…) — з великої літери, БЕЗ жирності
     // (жирні лише розділи рівня 1). bold:false перебиває жирність стилю Heading2.
     children: [run(title, { bold: false })],

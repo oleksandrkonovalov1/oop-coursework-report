@@ -1,41 +1,12 @@
-// Розділ 2 «Проєктування програми»: підрозділи 2.1–2.6, діаграма класів
-// (рисунок 2.1), фрагмент коду, посилання на джерела [1]–[6].
+// Розділ 2 «Проєктування програми»: підрозділи 2.1–2.6, рисунки 2.1–2.3
+// (структура проєкту, діаграма класів, фрагмент коду), джерела [1]–[6].
+// Зображення structure.png / min-competition.png генеруються figures/render-figures.mjs.
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-import { h2, body, codeBlock, figure, emptyLine } from "./helpers.mjs";
+import { h2, body, figure } from "./helpers.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
-const folderTree = `oop-coursework/
-├── apps/
-│   ├── api/          серверна частина — ASP.NET Core Web API (C#)
-│   │   ├── Models/        класи предметної галузі
-│   │   ├── Storage/       сховище даних (JsonDataStore)
-│   │   ├── Services/      керуюча логіка (DirectoryService)
-│   │   ├── Contracts/     типи запитів і відповідей API
-│   │   ├── Controllers/   HTTP-контролери
-│   │   └── Data/          JSON-файли бази даних
-│   ├── api.tests/    модульні тести (xUnit)
-│   └── web/          клієнтська частина — React, TypeScript
-└── reports/          пояснювальна записка`;
-
-const minCompetitionFragment = `/// <summary>
-/// Пошук мінімального конкурсу з даної спеціальності за обраною
-/// формою навчання. Вузи, де форма не ведеться (null), пропускаються.
-/// </summary>
-public MinCompetitionResult? GetMinCompetition(string name, StudyForm form)
-{
-    var best = _store.Specialties
-        .Where(s => string.Equals(s.Name, name.Trim(),
-            StringComparison.OrdinalIgnoreCase))
-        .Where(s => s.Competition.ByForm(form).HasValue)
-        .OrderBy(s => s.Competition.ByForm(form)!.Value)
-        .FirstOrDefault();
-    return best is null
-        ? null
-        : new MinCompetitionResult(GetUniversity(best.UniversityId),
-            best, form, best.Competition.ByForm(form)!.Value);
-}`;
+const fig = (name) => join(__dirname, "..", "figures", name);
 
 export const designContent = [
   // ── 2.1 ────────────────────────────────────────────────────────────
@@ -60,12 +31,13 @@ export const designContent = [
   ),
   body(
     "Проєкт організовано як монорепозиторій — єдиний репозиторій, що містить " +
-    "серверну частину, клієнтську частину, модульні тести та пояснювальну " +
-    "записку. Структура папок проєкту така:",
-    { keepNext: true },
+    "серверну та клієнтську частини і модульні тести. Структуру папок проєкту " +
+    "наведено на рисунку 2.1.",
   ),
-  ...codeBlock(folderTree),
-  emptyLine(),
+  ...figure(fig("structure.png"), {
+    width: 600, height: 258,
+    number: "2.1", caption: "Структура папок проєкту",
+  }),
 
   // ── 2.2 ────────────────────────────────────────────────────────────
   h2("2.2 Схема організації даних"),
@@ -96,12 +68,12 @@ export const designContent = [
   h2("2.3 Класи предметної галузі"),
   body(
     "Основні класи серверної частини та зв'язки між ними наведено на діаграмі " +
-    "класів — рисунку 2.1. На діаграмі для кожного класу показано лише " +
+    "класів — рисунку 2.2. На діаграмі для кожного класу показано лише " +
     "найважливіші члени.",
   ),
   ...figure(join(__dirname, "..", "uml", "classes.png"), {
     width: 238, height: 880,
-    number: "2.1", caption: "Діаграма класів",
+    number: "2.2", caption: "Діаграма класів",
   }),
   body(
     "Клас University подає вуз і містить ідентифікатор, найменування та " +
@@ -181,11 +153,13 @@ export const designContent = [
     "Нестандартним рішенням є пошук мінімального конкурсу з урахуванням " +
     "того, що в частині вузів обрана форма навчання не ведеться. Такі вузи " +
     "позначаються значенням null і пропускаються під час порівняння, тому " +
-    "результат ніколи не спотворюється відсутніми даними:",
-    { keepNext: true },
+    "результат ніколи не спотворюється відсутніми даними; реалізацію цього " +
+    "методу наведено на рисунку 2.3.",
   ),
-  ...codeBlock(minCompetitionFragment),
-  emptyLine(),
+  ...figure(fig("min-competition.png"), {
+    width: 560, height: 328,
+    number: "2.3", caption: "Метод пошуку мінімального конкурсу",
+  }),
   body(
     "Будь-який неочікуваний виняток перетворюється проміжним обробником на " +
     "відповідь із загальним ввічливим повідомленням без технічних подробиць, " +
