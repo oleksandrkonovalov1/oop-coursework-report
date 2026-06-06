@@ -13,6 +13,9 @@ export const BODY_SIZE = 14 * 2;   // 14 пт у напівпунктах
 export const CODE_SIZE = 10 * 2;   // 10 пт для фрагментів коду
 export const LINE_15 = 360;        // полуторний міжрядковий інтервал
 export const FIRST_LINE = Math.round(12.5 * MM_TO_DXA); // абзацний відступ
+// відстань заголовок ↔ текст: «два міжрядкові інтервали (приблизно один
+// пропущений рядок)» за методичкою ≈ висота рядка при 1.5 інтервалі
+export const HEADING_GAP = 480;
 
 export const margins = {
   top: Math.round(20 * MM_TO_DXA),
@@ -53,7 +56,7 @@ export const h1 = (title, opts = {}) =>
     pageBreakBefore: opts.pageBreakBefore ?? true,
     keepNext: true,
     alignment: AlignmentType.CENTER,
-    spacing: { before: 0, after: 360, line: LINE_15, lineRule: "auto" },
+    spacing: { before: 0, after: HEADING_GAP, line: LINE_15, lineRule: "auto" },
     children: [run(title.toUpperCase(), { bold: true })],
   });
 
@@ -63,7 +66,7 @@ export const h2 = (title) =>
     heading: HeadingLevel.HEADING_2,
     keepNext: true,
     indent: { firstLine: FIRST_LINE },
-    spacing: { before: 360, after: 360, line: LINE_15, lineRule: "auto" },
+    spacing: { before: HEADING_GAP, after: HEADING_GAP, line: LINE_15, lineRule: "auto" },
     children: [run(title, { bold: true })],
   });
 
@@ -73,7 +76,7 @@ export const plainHeading = (title, opts = {}) =>
     pageBreakBefore: opts.pageBreakBefore ?? true,
     keepNext: true,
     alignment: AlignmentType.CENTER,
-    spacing: { before: 0, after: 360, line: LINE_15, lineRule: "auto" },
+    spacing: { before: 0, after: HEADING_GAP, line: LINE_15, lineRule: "auto" },
     children: [run(title.toUpperCase(), { bold: true })],
   });
 
