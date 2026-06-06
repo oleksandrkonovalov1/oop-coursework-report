@@ -1,0 +1,13 @@
+{
+  "name": "oop-coursework-report",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "report": "node generate-report.mjs",
+    "update-toc": "node update-toc.mjs"
+  },
+  "devDependencies": {
+    "docx": "^9.7.1"
+  }
+}

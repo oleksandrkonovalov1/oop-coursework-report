@@ -1,0 +1,38 @@
+%% рендер: pnpm dlx @mermaid-js/mermaid-cli -i classes.mmd -o classes.png -b white -s 2 -p <puppeteer-config з executablePath до Chrome>
+classDiagram
+    class University {
+        +Guid Id
+        +string Name
+        +string Address
+    }
+    class Specialty {
+        +Guid Id
+        +Guid UniversityId
+        +string Name
+        +decimal ContractPrice
+        +Competition Competition
+    }
+    class Competition {
+        +decimal? FullTime
+        +decimal? Evening
+        +decimal? PartTime
+        +ByForm(form) decimal?
+    }
+    class JsonDataStore {
+        +List~University~ Universities
+        +List~Specialty~ Specialties
+        +Load()
+        +Save()
+    }
+    class DirectoryService {
+        +SearchUniversities(query)
+        +AddUniversity(input)
+        +DeleteUniversity(id) int
+        +GetOffers(name, maxPrice)
+        +GetMinCompetition(name, form)
+    }
+    University "1" <-- "0..*" Specialty : UniversityId
+    Specialty *-- Competition : композиція
+    DirectoryService --> JsonDataStore : використовує
+    JsonDataStore --> University
+    JsonDataStore --> Specialty

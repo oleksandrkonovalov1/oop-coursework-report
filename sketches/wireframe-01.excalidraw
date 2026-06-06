@@ -1,0 +1,945 @@
+{
+ "type": "excalidraw",
+ "version": 2,
+ "source": "local",
+ "elements": [
+  {
+   "type": "rectangle",
+   "id": "v1-frame",
+   "x": 10,
+   "y": 10,
+   "width": 780,
+   "height": 580,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "line",
+   "id": "v1-navline",
+   "x": 10,
+   "y": 66,
+   "width": 780,
+   "height": 1,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     780,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "text",
+   "id": "v1-brand",
+   "x": 30,
+   "y": 28,
+   "width": 230,
+   "height": 22,
+   "text": "Довідник абітурієнта",
+   "fontSize": 18,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-pill1",
+   "x": 310,
+   "y": 22,
+   "width": 86,
+   "height": 32,
+   "backgroundColor": "#a5d8ff",
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v1-pill1-lbl",
+   "x": 336,
+   "y": 29,
+   "width": 35,
+   "height": 19,
+   "text": "Вузи",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-pill2",
+   "x": 406,
+   "y": 22,
+   "width": 146,
+   "height": 32,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v1-pill2-lbl",
+   "x": 423,
+   "y": 29,
+   "width": 113,
+   "height": 19,
+   "text": "Спеціальності",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "ellipse",
+   "id": "v1-help",
+   "x": 740,
+   "y": 22,
+   "width": 32,
+   "height": 32,
+   "roughness": 2
+  },
+  {
+   "type": "text",
+   "id": "v1-help-lbl",
+   "x": 752,
+   "y": 29,
+   "width": 9,
+   "height": 19,
+   "text": "?",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "text",
+   "id": "v1-h1",
+   "x": 30,
+   "y": 86,
+   "width": 80,
+   "height": 30,
+   "text": "Вузи",
+   "fontSize": 24,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-badge",
+   "x": 120,
+   "y": 90,
+   "width": 44,
+   "height": 26,
+   "backgroundColor": "#d0bfff",
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v1-badge-lbl",
+   "x": 138,
+   "y": 94,
+   "width": 9,
+   "height": 19,
+   "text": "8",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-add",
+   "x": 590,
+   "y": 82,
+   "width": 180,
+   "height": 40,
+   "backgroundColor": "#b2f2bb",
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v1-add-lbl",
+   "x": 628,
+   "y": 93,
+   "width": 104,
+   "height": 19,
+   "text": "+ Додати вуз",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-search",
+   "x": 30,
+   "y": 138,
+   "width": 740,
+   "height": 44,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "ellipse",
+   "id": "v1-sico",
+   "x": 48,
+   "y": 152,
+   "width": 14,
+   "height": 14,
+   "roughness": 2
+  },
+  {
+   "type": "line",
+   "id": "v1-sich",
+   "x": 60,
+   "y": 164,
+   "width": 8,
+   "height": 8,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     7,
+     7
+    ]
+   ]
+  },
+  {
+   "type": "text",
+   "id": "v1-sph",
+   "x": 80,
+   "y": 151,
+   "width": 300,
+   "height": 18,
+   "text": "Пошук за назвою або адресою…",
+   "fontSize": 16,
+   "strokeColor": "#868e96",
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-card",
+   "x": 30,
+   "y": 198,
+   "width": 740,
+   "height": 368,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v1-th1",
+   "x": 50,
+   "y": 214,
+   "width": 160,
+   "height": 18,
+   "text": "Найменування",
+   "fontSize": 14,
+   "fontFamily": 1
+  },
+  {
+   "type": "text",
+   "id": "v1-th2",
+   "x": 350,
+   "y": 214,
+   "width": 80,
+   "height": 18,
+   "text": "Адреса",
+   "fontSize": 14,
+   "fontFamily": 1
+  },
+  {
+   "type": "line",
+   "id": "v1-thl",
+   "x": 30,
+   "y": 244,
+   "width": 740,
+   "height": 1,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     740,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "line",
+   "id": "v1-r1n",
+   "x": 50,
+   "y": 274,
+   "width": 230,
+   "height": 10,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     45,
+     -5
+    ],
+    [
+     95,
+     4
+    ],
+    [
+     145,
+     -4
+    ],
+    [
+     190,
+     5
+    ],
+    [
+     230,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "line",
+   "id": "v1-r1a",
+   "x": 350,
+   "y": 274,
+   "width": 240,
+   "height": 10,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     50,
+     -4
+    ],
+    [
+     105,
+     4
+    ],
+    [
+     160,
+     -4
+    ],
+    [
+     200,
+     4
+    ],
+    [
+     240,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-r1e",
+   "x": 634,
+   "y": 258,
+   "width": 56,
+   "height": 28,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v1-r1e-lbl",
+   "x": 645,
+   "y": 263,
+   "width": 35,
+   "height": 19,
+   "text": "Ред.",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-r1d",
+   "x": 698,
+   "y": 258,
+   "width": 56,
+   "height": 28,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   },
+   "strokeColor": "#e03131"
+  },
+  {
+   "type": "text",
+   "id": "v1-r1d-lbl",
+   "x": 709,
+   "y": 263,
+   "width": 35,
+   "height": 19,
+   "text": "Вид.",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "line",
+   "id": "v1-rl1",
+   "x": 30,
+   "y": 300,
+   "width": 740,
+   "height": 1,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     740,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "line",
+   "id": "v1-r2n",
+   "x": 50,
+   "y": 330,
+   "width": 230,
+   "height": 10,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     45,
+     4
+    ],
+    [
+     95,
+     -5
+    ],
+    [
+     145,
+     4
+    ],
+    [
+     190,
+     -4
+    ],
+    [
+     230,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "line",
+   "id": "v1-r2a",
+   "x": 350,
+   "y": 330,
+   "width": 240,
+   "height": 10,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     50,
+     4
+    ],
+    [
+     105,
+     -4
+    ],
+    [
+     160,
+     4
+    ],
+    [
+     200,
+     -4
+    ],
+    [
+     240,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-r2e",
+   "x": 634,
+   "y": 314,
+   "width": 56,
+   "height": 28,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v1-r2e-lbl",
+   "x": 645,
+   "y": 319,
+   "width": 35,
+   "height": 19,
+   "text": "Ред.",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-r2d",
+   "x": 698,
+   "y": 314,
+   "width": 56,
+   "height": 28,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   },
+   "strokeColor": "#e03131"
+  },
+  {
+   "type": "text",
+   "id": "v1-r2d-lbl",
+   "x": 709,
+   "y": 319,
+   "width": 35,
+   "height": 19,
+   "text": "Вид.",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "line",
+   "id": "v1-rl2",
+   "x": 30,
+   "y": 356,
+   "width": 740,
+   "height": 1,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     740,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "line",
+   "id": "v1-r3n",
+   "x": 50,
+   "y": 386,
+   "width": 230,
+   "height": 10,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     45,
+     -4
+    ],
+    [
+     95,
+     5
+    ],
+    [
+     145,
+     -4
+    ],
+    [
+     190,
+     4
+    ],
+    [
+     230,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "line",
+   "id": "v1-r3a",
+   "x": 350,
+   "y": 386,
+   "width": 240,
+   "height": 10,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     50,
+     -5
+    ],
+    [
+     105,
+     4
+    ],
+    [
+     160,
+     -3
+    ],
+    [
+     200,
+     5
+    ],
+    [
+     240,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-r3e",
+   "x": 634,
+   "y": 370,
+   "width": 56,
+   "height": 28,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v1-r3e-lbl",
+   "x": 645,
+   "y": 375,
+   "width": 35,
+   "height": 19,
+   "text": "Ред.",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-r3d",
+   "x": 698,
+   "y": 370,
+   "width": 56,
+   "height": 28,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   },
+   "strokeColor": "#e03131"
+  },
+  {
+   "type": "text",
+   "id": "v1-r3d-lbl",
+   "x": 709,
+   "y": 375,
+   "width": 35,
+   "height": 19,
+   "text": "Вид.",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "line",
+   "id": "v1-rl3",
+   "x": 30,
+   "y": 412,
+   "width": 740,
+   "height": 1,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     740,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "line",
+   "id": "v1-r4n",
+   "x": 50,
+   "y": 442,
+   "width": 230,
+   "height": 10,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     45,
+     5
+    ],
+    [
+     95,
+     -4
+    ],
+    [
+     145,
+     4
+    ],
+    [
+     190,
+     -5
+    ],
+    [
+     230,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "line",
+   "id": "v1-r4a",
+   "x": 350,
+   "y": 442,
+   "width": 240,
+   "height": 10,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     50,
+     5
+    ],
+    [
+     105,
+     -3
+    ],
+    [
+     160,
+     4
+    ],
+    [
+     200,
+     -4
+    ],
+    [
+     240,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-r4e",
+   "x": 634,
+   "y": 426,
+   "width": 56,
+   "height": 28,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v1-r4e-lbl",
+   "x": 645,
+   "y": 431,
+   "width": 35,
+   "height": 19,
+   "text": "Ред.",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-r4d",
+   "x": 698,
+   "y": 426,
+   "width": 56,
+   "height": 28,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   },
+   "strokeColor": "#e03131"
+  },
+  {
+   "type": "text",
+   "id": "v1-r4d-lbl",
+   "x": 709,
+   "y": 431,
+   "width": 35,
+   "height": 19,
+   "text": "Вид.",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "line",
+   "id": "v1-rl4",
+   "x": 30,
+   "y": 468,
+   "width": 740,
+   "height": 1,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     740,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "line",
+   "id": "v1-r5n",
+   "x": 50,
+   "y": 498,
+   "width": 230,
+   "height": 10,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     45,
+     -4
+    ],
+    [
+     95,
+     4
+    ],
+    [
+     145,
+     -5
+    ],
+    [
+     190,
+     4
+    ],
+    [
+     230,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "line",
+   "id": "v1-r5a",
+   "x": 350,
+   "y": 498,
+   "width": 240,
+   "height": 10,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     50,
+     -4
+    ],
+    [
+     105,
+     5
+    ],
+    [
+     160,
+     -4
+    ],
+    [
+     200,
+     3
+    ],
+    [
+     240,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-r5e",
+   "x": 634,
+   "y": 482,
+   "width": 56,
+   "height": 28,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v1-r5e-lbl",
+   "x": 645,
+   "y": 487,
+   "width": 35,
+   "height": 19,
+   "text": "Ред.",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v1-r5d",
+   "x": 698,
+   "y": 482,
+   "width": 56,
+   "height": 28,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   },
+   "strokeColor": "#e03131"
+  },
+  {
+   "type": "text",
+   "id": "v1-r5d-lbl",
+   "x": 709,
+   "y": 487,
+   "width": 35,
+   "height": 19,
+   "text": "Вид.",
+   "fontSize": 15,
+   "fontFamily": 1
+  }
+ ],
+ "appState": {
+  "viewBackgroundColor": "#ffffff"
+ },
+ "files": {}
+}

@@ -1,0 +1,320 @@
+{
+ "type": "excalidraw",
+ "version": 2,
+ "source": "local",
+ "elements": [
+  {
+   "type": "rectangle",
+   "id": "v4-bg",
+   "x": 10,
+   "y": 10,
+   "width": 780,
+   "height": 580,
+   "backgroundColor": "#ced4da",
+   "roughness": 2
+  },
+  {
+   "type": "rectangle",
+   "id": "v4-modal",
+   "x": 180,
+   "y": 62,
+   "width": 440,
+   "height": 476,
+   "backgroundColor": "#ffffff",
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v4-title",
+   "x": 204,
+   "y": 82,
+   "width": 280,
+   "height": 22,
+   "text": "Додавання спеціальності",
+   "fontSize": 18,
+   "fontFamily": 1
+  },
+  {
+   "type": "text",
+   "id": "v4-close",
+   "x": 588,
+   "y": 78,
+   "width": 20,
+   "height": 24,
+   "text": "×",
+   "fontSize": 22,
+   "strokeColor": "#868e96",
+   "fontFamily": 1
+  },
+  {
+   "type": "line",
+   "id": "v4-div",
+   "x": 180,
+   "y": 118,
+   "width": 440,
+   "height": 1,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     440,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "text",
+   "id": "v4-lcode",
+   "x": 204,
+   "y": 136,
+   "width": 44,
+   "height": 16,
+   "text": "Код",
+   "fontSize": 14,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v4-icode",
+   "x": 204,
+   "y": 156,
+   "width": 92,
+   "height": 38,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v4-lname",
+   "x": 316,
+   "y": 136,
+   "width": 64,
+   "height": 16,
+   "text": "Назва",
+   "fontSize": 14,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v4-iname",
+   "x": 316,
+   "y": 156,
+   "width": 280,
+   "height": 38,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v4-lprice",
+   "x": 204,
+   "y": 214,
+   "width": 200,
+   "height": 16,
+   "text": "Вартість контракту",
+   "fontSize": 14,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v4-iprice",
+   "x": 204,
+   "y": 234,
+   "width": 392,
+   "height": 38,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v4-suffix",
+   "x": 522,
+   "y": 245,
+   "width": 64,
+   "height": 16,
+   "text": "грн/рік",
+   "fontSize": 14,
+   "strokeColor": "#868e96",
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v4-group",
+   "x": 204,
+   "y": 294,
+   "width": 392,
+   "height": 136,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v4-legend",
+   "x": 220,
+   "y": 306,
+   "width": 340,
+   "height": 16,
+   "text": "Конкурс минулого року, осіб на місце",
+   "fontSize": 14,
+   "fontFamily": 1
+  },
+  {
+   "type": "text",
+   "id": "v4-hint",
+   "x": 220,
+   "y": 326,
+   "width": 270,
+   "height": 16,
+   "text": "порожнє — форма не ведеться",
+   "fontSize": 14,
+   "strokeColor": "#868e96",
+   "fontFamily": 1
+  },
+  {
+   "type": "text",
+   "id": "v4-lft",
+   "x": 220,
+   "y": 352,
+   "width": 54,
+   "height": 16,
+   "text": "Денна",
+   "fontSize": 14,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v4-ift",
+   "x": 220,
+   "y": 372,
+   "width": 108,
+   "height": 36,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v4-lev",
+   "x": 348,
+   "y": 352,
+   "width": 64,
+   "height": 16,
+   "text": "Вечірня",
+   "fontSize": 14,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v4-iev",
+   "x": 348,
+   "y": 372,
+   "width": 108,
+   "height": 36,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v4-lpt",
+   "x": 476,
+   "y": 352,
+   "width": 60,
+   "height": 16,
+   "text": "Заочна",
+   "fontSize": 14,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v4-ipt",
+   "x": 476,
+   "y": 372,
+   "width": 108,
+   "height": 36,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "rectangle",
+   "id": "v4-cancel",
+   "x": 368,
+   "y": 452,
+   "width": 108,
+   "height": 38,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v4-cancel-lbl",
+   "x": 383,
+   "y": 462,
+   "width": 78,
+   "height": 19,
+   "text": "Скасувати",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v4-save",
+   "x": 488,
+   "y": 452,
+   "width": 108,
+   "height": 38,
+   "backgroundColor": "#a5d8ff",
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v4-save-lbl",
+   "x": 507,
+   "y": 462,
+   "width": 70,
+   "height": 19,
+   "text": "Зберегти",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "text",
+   "id": "v4-kbd",
+   "x": 204,
+   "y": 506,
+   "width": 300,
+   "height": 16,
+   "text": "Enter — зберегти · Esc — скасувати",
+   "fontSize": 14,
+   "strokeColor": "#868e96",
+   "fontFamily": 1
+  }
+ ],
+ "appState": {
+  "viewBackgroundColor": "#ffffff"
+ },
+ "files": {}
+}

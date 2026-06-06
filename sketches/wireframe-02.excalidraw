@@ -1,0 +1,225 @@
+{
+ "type": "excalidraw",
+ "version": 2,
+ "source": "local",
+ "elements": [
+  {
+   "type": "rectangle",
+   "id": "v2-bg",
+   "x": 10,
+   "y": 10,
+   "width": 780,
+   "height": 580,
+   "backgroundColor": "#ced4da",
+   "roughness": 2
+  },
+  {
+   "type": "rectangle",
+   "id": "v2-modal",
+   "x": 220,
+   "y": 110,
+   "width": 360,
+   "height": 360,
+   "backgroundColor": "#ffffff",
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v2-title",
+   "x": 244,
+   "y": 130,
+   "width": 200,
+   "height": 22,
+   "text": "Додавання вузу",
+   "fontSize": 18,
+   "fontFamily": 1
+  },
+  {
+   "type": "text",
+   "id": "v2-close",
+   "x": 548,
+   "y": 126,
+   "width": 20,
+   "height": 24,
+   "text": "×",
+   "fontSize": 22,
+   "strokeColor": "#868e96",
+   "fontFamily": 1
+  },
+  {
+   "type": "line",
+   "id": "v2-div",
+   "x": 220,
+   "y": 166,
+   "width": 360,
+   "height": 1,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     360,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "text",
+   "id": "v2-l1",
+   "x": 244,
+   "y": 186,
+   "width": 140,
+   "height": 16,
+   "text": "Найменування",
+   "fontSize": 14,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v2-i1",
+   "x": 244,
+   "y": 206,
+   "width": 312,
+   "height": 40,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   },
+   "strokeColor": "#e03131"
+  },
+  {
+   "type": "text",
+   "id": "v2-err",
+   "x": 244,
+   "y": 252,
+   "width": 260,
+   "height": 16,
+   "text": "Вкажіть найменування вузу",
+   "fontSize": 14,
+   "strokeColor": "#e03131",
+   "fontFamily": 1
+  },
+  {
+   "type": "text",
+   "id": "v2-l2",
+   "x": 244,
+   "y": 282,
+   "width": 80,
+   "height": 16,
+   "text": "Адреса",
+   "fontSize": 14,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v2-i2",
+   "x": 244,
+   "y": 302,
+   "width": 312,
+   "height": 40,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "line",
+   "id": "v2-i2t",
+   "x": 258,
+   "y": 322,
+   "width": 160,
+   "height": 8,
+   "roughness": 2,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     40,
+     -4
+    ],
+    [
+     80,
+     3
+    ],
+    [
+     120,
+     -3
+    ],
+    [
+     160,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "rectangle",
+   "id": "v2-cancel",
+   "x": 330,
+   "y": 374,
+   "width": 108,
+   "height": 38,
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v2-cancel-lbl",
+   "x": 345,
+   "y": 384,
+   "width": 78,
+   "height": 19,
+   "text": "Скасувати",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "rectangle",
+   "id": "v2-save",
+   "x": 448,
+   "y": 374,
+   "width": 108,
+   "height": 38,
+   "backgroundColor": "#a5d8ff",
+   "roughness": 2,
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "type": "text",
+   "id": "v2-save-lbl",
+   "x": 467,
+   "y": 384,
+   "width": 70,
+   "height": 19,
+   "text": "Зберегти",
+   "fontSize": 15,
+   "fontFamily": 1
+  },
+  {
+   "type": "text",
+   "id": "v2-kbd",
+   "x": 244,
+   "y": 430,
+   "width": 300,
+   "height": 16,
+   "text": "Enter — зберегти · Esc — скасувати",
+   "fontSize": 14,
+   "strokeColor": "#868e96",
+   "fontFamily": 1
+  }
+ ],
+ "appState": {
+  "viewBackgroundColor": "#ffffff"
+ },
+ "files": {}
+}
