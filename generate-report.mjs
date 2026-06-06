@@ -9,8 +9,11 @@ import {
   Document, Packer, Paragraph, TextRun, Header,
   AlignmentType, PageNumber, TabStopType, LeaderType,
   Table, TableRow, TableCell, WidthType, VerticalAlign,
+  ImageRun, HorizontalPositionRelativeFrom, VerticalPositionRelativeFrom,
+  TextWrappingType,
 } from "docx";
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync } from "fs";
+import { execFileSync } from "child_process";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
@@ -34,13 +37,50 @@ const FIGURES_TOTAL = "6";
 const SOURCES_TOTAL = "6";
 
 // ─── ТИТУЛЬНИЙ АРКУШ (додаток Г методички) ──────────────────────────
+// Блок «Виконав/Керівник/Комісія» — з відступом зліва (як у дод. Г і
+// затвердженому зразку), з лініями для підписів і дрібними підписами
+// під ними; методичка вимагає підпис виконавця на титульному аркуші.
 
-const rightLine = (text) =>
-  new Paragraph({
-    alignment: AlignmentType.RIGHT,
-    spacing: { after: 0, line: LINE_15, lineRule: "auto" },
-    children: [run(text)],
+const TITLE_BLOCK_INDENT = 3540; // відступ блоку підписів, twips (~6,2 см)
+const SMALL_SIZE = 9 * 2;        // дрібний підпис під лінією, 9 пт
+
+// Скан підпису виконавця (прозорий фон) — плаваюче зображення над лінією
+// підпису; методичка: підпис на титульному аркуші і листі завдання.
+const SIGNATURE = readFileSync(join(__dirname, "content", "signature.png"));
+const MM_TO_EMU = 36000;
+const SIG_W_MM = 17;
+const SIG_H_MM = Math.round(SIG_W_MM * 95 / 137); // пропорції скану
+
+const signatureImage = ({ xMm, yMm = -7 }) =>
+  new ImageRun({
+    data: SIGNATURE,
+    type: "png",
+    transformation: {
+      width: Math.round(SIG_W_MM * 96 / 25.4),
+      height: Math.round(SIG_H_MM * 96 / 25.4),
+    },
+    floating: {
+      horizontalPosition: {
+        relative: HorizontalPositionRelativeFrom.COLUMN,
+        offset: Math.round(xMm * MM_TO_EMU),
+      },
+      verticalPosition: {
+        relative: VerticalPositionRelativeFrom.LINE,
+        offset: Math.round(yMm * MM_TO_EMU),
+      },
+      wrap: { type: TextWrappingType.NONE },
+    },
   });
+
+const titleLine = (children) =>
+  new Paragraph({
+    indent: { left: TITLE_BLOCK_INDENT },
+    spacing: { after: 0, line: LINE_15, lineRule: "auto" },
+    children,
+  });
+
+const underlined = (text) => run(text, { underline: {} });
+const caption = (text, opts = {}) => run(text, { size: SMALL_SIZE, ...opts });
 
 const titlePage = [
   centered(run("Міністерство освіти і науки України")),
@@ -49,22 +89,34 @@ const titlePage = [
   centered(run("Кафедра програмної інженерії")),
   emptyLine(), emptyLine(),
   centered(run("КУРСОВА РОБОТА", { bold: true })),
-  centered(run("Пояснювальна записка")),
+  centered(run("Пояснювальна записка", { bold: true })),
+  emptyLine(),
   centered(run("з дисципліни «Об'єктно-орієнтоване програмування»")),
   centered(run("ДОВІДНИК АБІТУРІЄНТА")),
   emptyLine(), emptyLine(),
-  rightLine("Виконав:"),
-  rightLine("здобувач 1 року навчання,"),
-  rightLine("групи ПЗПІ-25-6,"),
-  rightLine("Олександр КОНОВАЛОВ"),
+  titleLine([run("Виконав:")]),
+  titleLine([
+    run("Здобувач "), run("_"), underlined("1"), run("_"),
+    run(" року навчання, групи "), underlined("ПЗПІ-25-6"),
+  ]),
+  titleLine([
+    signatureImage({ xMm: 66 }),
+    run("____________"), underlined("Олександр КОНОВАЛОВ"), run("_____"),
+    caption("                              ", { break: 1 }),
+    caption("(власне ім'я, ПРІЗВИЩЕ)"),
+  ]),
+  titleLine([
+    run("Керівник "), underlined("         "), run(" "),
+    underlined("Ст. викл. Юлія ЧЕРЕПАНОВА"),
+    caption("            (підпис)            ", { break: 1 }),
+    caption("(посада, власне ім'я, ПРІЗВИЩЕ)"),
+  ]),
   emptyLine(),
-  rightLine("Керівник:"),
-  rightLine("ст. викл. Юлія ЧЕРЕПАНОВА"),
-  emptyLine(),
-  rightLine("Комісія: проф. Володимир БОНДАРЄВ"),
-  rightLine("ст. викл. Юлія ЧЕРЕПАНОВА"),
-  rightLine("ст. викл. Віталій ЛЯПОТА"),
-  emptyLine(),
+  titleLine([run("Комісія:")]),
+  titleLine([run("______________ Проф. Володимир БОНДАРЄВ")]),
+  titleLine([run("______________ Ст. викл. Юлія ЧЕРЕПАНОВА")]),
+  titleLine([run("______________ Ст. викл. Віталій ЛЯПОТА")]),
+  emptyLine(), emptyLine(),
   centered(run("Харків 2026")),
 ];
 
@@ -152,7 +204,13 @@ const taskSheet = [
   emptyLine(),
   body("Дата видачі завдання: «21» лютого 2026 р.", { firstLine: 0 }),
   emptyLine(),
-  body("Здобувач вищої освіти  ________________  Олександр КОНОВАЛОВ", { firstLine: 0 }),
+  new Paragraph({
+    spacing: { after: 0, line: LINE_15, lineRule: "auto" },
+    children: [
+      signatureImage({ xMm: 53 }),
+      run("Здобувач вищої освіти  ________________  Олександр КОНОВАЛОВ"),
+    ],
+  }),
   emptyLine(),
   body("Керівник роботи  ________________  ст. викл. Юлія ЧЕРЕПАНОВА", { firstLine: 0 }),
 ];
@@ -353,3 +411,10 @@ const outputPath = join(__dirname, "2026_ПІ_ООП_ПЗПІ-25-6_Конова�
 const buffer = await Packer.toBuffer(doc);
 writeFileSync(outputPath, buffer);
 console.log(`Created: ${outputPath}`);
+
+// Одразу рендеримо PDF (LibreOffice headless) — щоб бачити фінальний вигляд
+// без ручної конвертації і звіряти кількість сторінок з PAGES_TOTAL.
+execFileSync("soffice", ["--headless", "--convert-to", "pdf", outputPath, "--outdir", __dirname], {
+  stdio: "ignore",
+});
+console.log(`Created: ${outputPath.replace(/\.docx$/, ".pdf")}`);
