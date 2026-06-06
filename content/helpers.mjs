@@ -67,7 +67,9 @@ export const h2 = (title) =>
     keepNext: true,
     indent: { firstLine: FIRST_LINE },
     spacing: { before: HEADING_GAP, after: HEADING_GAP, line: LINE_15, lineRule: "auto" },
-    children: [run(title, { bold: true })],
+    // Методичка: підрозділи (1.1, 1.2…) — з великої літери, БЕЗ жирності
+    // (жирні лише розділи рівня 1). bold:false перебиває жирність стилю Heading2.
+    children: [run(title, { bold: false })],
   });
 
 // Псевдозаголовок, що НЕ потрапляє до змісту (РЕФЕРАТ, ЗМІСТ)
