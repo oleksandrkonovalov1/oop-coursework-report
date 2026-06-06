@@ -48,10 +48,10 @@ const SMALL_SIZE = 9 * 2;        // дрібний підпис під ліні�
 // підпису; методичка: підпис на титульному аркуші і листі завдання.
 const SIGNATURE = readFileSync(join(__dirname, "content", "signature.png"));
 const MM_TO_EMU = 36000;
-const SIG_W_MM = 17;
+const SIG_W_MM = 15;
 const SIG_H_MM = Math.round(SIG_W_MM * 95 / 137); // пропорції скану
 
-const signatureImage = ({ xMm, yMm = -7 }) =>
+const signatureImage = ({ xMm, yMm = -2 }) =>
   new ImageRun({
     data: SIGNATURE,
     type: "png",
@@ -65,7 +65,9 @@ const signatureImage = ({ xMm, yMm = -7 }) =>
         offset: Math.round(xMm * MM_TO_EMU),
       },
       verticalPosition: {
-        relative: VerticalPositionRelativeFrom.LINE,
+        // прив'язка до абзацу, а не рядка: Word/Quick Look трактують LINE
+        // по-різному, через що підпис «спливав» на рядок вище
+        relative: VerticalPositionRelativeFrom.PARAGRAPH,
         offset: Math.round(yMm * MM_TO_EMU),
       },
       wrap: { type: TextWrappingType.NONE },
